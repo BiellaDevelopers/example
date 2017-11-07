@@ -1,0 +1,19 @@
+{
+  "name": "bielladevexample",
+  "version": "0.1.0",
+  "description": "progetto di esempio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BiellaDevelopers/example.git"
+  },
+  "author": "Biella Developers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BiellaDevelopers/example/issues"
+  },
+  "homepage": "https://github.com/BiellaDevelopers/example#readme"
+}
