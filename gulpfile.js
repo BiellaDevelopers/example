@@ -12,7 +12,9 @@ var browserSync  = require('browser-sync');
 *
 **/
 gulp.task('browser-sync', function() {
-  browserSync.init(['style/*.css', 'js/**/*.js', 'index.html'], {
-    proxy: "bielladevexample.dev"
+  browserSync({
+    server: {
+            baseDir: "./"
+        }
   });
 });
