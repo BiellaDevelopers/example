@@ -1,6 +1,9 @@
 // Includiamo Gulp
 var gulp = require('gulp');
 
+// Includiamo i Plugins
+var browserSync  = require('browser-sync');
+
 /**
 *
 * BrowserSync.io
@@ -10,6 +13,6 @@ var gulp = require('gulp');
 **/
 gulp.task('browser-sync', function() {
   browserSync.init(['style/*.css', 'js/**/*.js', 'index.html'], {
-    proxy: "http://vaporart.ll"
+    proxy: "bielladevexample.dev"
   });
 });
