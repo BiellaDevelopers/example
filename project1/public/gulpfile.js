@@ -34,7 +34,7 @@ gulp.task('sass', function () {
   return gulp.src('css/*.scss')
      .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
      .pipe(postcss(processors))
-     .pipe(gulp.dest('../dist/'))
+     .pipe(gulp.dest('../dist/css/'))
      .pipe(notify('Sass Compilato e Minificato'));
 });
 
