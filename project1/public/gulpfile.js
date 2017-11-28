@@ -31,10 +31,10 @@ gulp.task('sass', function () {
                                 ]}),
         cssnano
     ];
-  return gulp.src('style/*.scss')
+  return gulp.src('css/*.scss')
      .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
      .pipe(postcss(processors))
-     .pipe(gulp.dest('style'))
+     .pipe(gulp.dest('../dist/'))
      .pipe(notify('Sass Compilato e Minificato'));
 });
 
