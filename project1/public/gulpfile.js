@@ -8,6 +8,7 @@ var postcss      = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano      = require('cssnano');
 var notify       = require('gulp-notify');
+var imagemin     = require('gulp-imagemin');
 
 /**
 *
@@ -55,9 +56,27 @@ gulp.task('browser-sync', function() {
 
 /**
 *
+* Compressione immagini
+* - Compress them!
+*
+**/
+gulp.task('images', function () {
+  return gulp.src('img/**/*{jpg,png,gif}')
+		.pipe(imagemin({
+			progressive: true,
+      optimizationLevel: 4,
+      interlaced: true,
+			svgoPlugins: [{removeViewBox: false}]
+		}))
+		.pipe(gulp.dest('../dist/img/'));
+});
+
+/**
+*
 * Controlliamo le modifiche ai file e lanciamo i task
 *
 **/
 gulp.task('watch', function() {
+  gulp.watch('img/**/*', ['images']);
   gulp.watch('css/**/*.scss', ['sass']);
 });
