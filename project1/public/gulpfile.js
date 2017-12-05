@@ -41,6 +41,32 @@ gulp.task('sass', function () {
 
 /**
 *
+* Minifichiamo i file Javascript
+* - Concateno tutti i file nella cartella js/plugins
+* - Minificazione e spostamento di main.js e plugins.js
+*
+**/
+gulp.task('scripts', function () {
+  var plugin = gulp.src('js/plugins/*.js')
+  .pipe(concat('plugins.js'))
+  .pipe(gulp.dest('js'));
+  var pluginMin = gulp.src('js/plugins.js')
+  .pipe(rename('plugins.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('../dist/js/'))
+  .pipe(notify('Plugin JS Minified'));
+  var main = gulp.src('js/main.js')
+  .pipe(rename('main.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('../dist/js'))
+  .pipe(notify('Main JS Minified'));
+  return plugin;
+  return pluginMin;
+  return main;
+});
+
+/**
+*
 * BrowserSync.io
 * - Watch CSS, JS & HTML for changes
 * - View project at: localhost:3000
@@ -78,5 +104,6 @@ gulp.task('images', function () {
 **/
 gulp.task('watch', function() {
   gulp.watch('img/**/*', ['images']);
+  gulp.watch('js/**/*.js', ['scripts']);
   gulp.watch('css/**/*.scss', ['sass']);
 });
