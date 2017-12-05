@@ -9,6 +9,9 @@ var autoprefixer = require('autoprefixer');
 var cssnano      = require('cssnano');
 var notify       = require('gulp-notify');
 var imagemin     = require('gulp-imagemin');
+var concat       = require('gulp-concat');
+var rename       = require('gulp-rename');
+var uglify       = require('gulp-uglify');
 
 /**
 *
