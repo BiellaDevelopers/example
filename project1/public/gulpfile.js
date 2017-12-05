@@ -52,3 +52,12 @@ gulp.task('browser-sync', function() {
         }
   });
 });
+
+/**
+*
+* Controlliamo le modifiche ai file e lanciamo i task
+*
+**/
+gulp.task('watch', function() {
+  gulp.watch('css/**/*.scss', ['sass']);
+});
